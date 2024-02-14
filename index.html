@@ -47,8 +47,8 @@
                 }
             }
 
-            function playGame() {
-                for (let i = 0; i < 5; i++) {
+            function playGame(numberOfRounds) {
+                for (let i = 0; i < numberOfRounds; i++) {
                     const playerChoice = prompt("Enter your choice: ").toUpperCase();
 
                     const computerChoice = getComputerChoice();
@@ -57,7 +57,9 @@
                 }
             }
 
-            playGame();
+            const numberOfRounds = prompt("Enter the number of rounds to play:")
+
+            playGame(numberOfRounds);
         </script>
     </body>
 </html>
