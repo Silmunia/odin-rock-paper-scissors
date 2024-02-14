@@ -47,11 +47,17 @@
                 }
             }
 
-            const playerChoice = prompt("Enter your choice: ").toUpperCase();
+            function playGame() {
+                for (let i = 0; i < 5; i++) {
+                    const playerChoice = prompt("Enter your choice: ").toUpperCase();
 
-            const computerChoice = getComputerChoice();
+                    const computerChoice = getComputerChoice();
 
-            console.log(playRound(playerChoice, computerChoice));
+                    console.log(playRound(playerChoice, computerChoice));
+                }
+            }
+
+            playGame();
         </script>
     </body>
 </html>
