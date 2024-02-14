@@ -30,18 +30,21 @@
                     if (computerChoice === PAPER) {
                         return "You lose! Paper beats rock.";
                     } else {
+                        playerScore += 1;
                         return "You win! Rock beats scissors.";
                     }
                 } else if (playerChoice === PAPER) {
                     if (computerChoice === SCISSORS) {
                         return "You lose! Scissors beat paper.";
                     } else {
+                        playerScore += 1;
                         return "You win! Paper beats rock.";
                     }
                 } else if (playerChoice === SCISSORS) {
                     if (computerChoice === ROCK) {
                         return "You lose! Rock beats scissors.";
                     } else {
+                        playerScore += 1;
                         return "You win! Scissors beat paper.";
                     }
                 }
@@ -55,7 +58,15 @@
 
                     console.log(playRound(playerChoice, computerChoice));
                 }
+
+                if (playerScore >= numberOfRounds/2) {
+                    console.log("The Player wins!");
+                } else {
+                    console.log("The Computer wins!");
+                }
             }
+
+            let playerScore = 0;
 
             const numberOfRounds = prompt("Enter the number of rounds to play:")
 
