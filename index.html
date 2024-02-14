@@ -23,6 +23,30 @@
                 }
             }
 
+            function playRound(playerChoice, computerChoice) {
+                if (playerChoice === computerChoice) {
+                    return "It's a tie!";
+                } else if (playerChoice === ROCK) {
+                    if (computerChoice === PAPER) {
+                        return "You lose! Paper beats rock.";
+                    } else {
+                        return "You win! Rock beats scissors.";
+                    }
+                } else if (playerChoice === PAPER) {
+                    if (computerChoice === SCISSORS) {
+                        return "You lose! Scissors beat paper.";
+                    } else {
+                        return "You win! Paper beats rock.";
+                    }
+                } else if (playerChoice === SCISSORS) {
+                    if (computerChoice === ROCK) {
+                        return "You lose! Rock beats scissors.";
+                    } else {
+                        return "You win! Scissors beat paper.";
+                    }
+                }
+            }
+
             console.log(getComputerChoice());
         </script>
     </body>
