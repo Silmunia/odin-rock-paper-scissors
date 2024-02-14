@@ -7,15 +7,19 @@
 
     <body>
         <script>
+            const ROCK = "ROCK";
+            const PAPER = "PAPER";
+            const SCISSORS = "SCISSORS";
+
             function getComputerChoice() {
                 let choice = Math.random() * 100;
 
                 if (choice <= 33) {
-                    return "Rock";
+                    return ROCK;
                 } else if (choice > 66) {
-                    return "Paper";
+                    return PAPER;
                 } else {
-                    return "Scissors";
+                    return SCISSORS;
                 }
             }
 
