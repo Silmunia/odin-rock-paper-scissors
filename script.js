@@ -45,6 +45,8 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+let gameActive = true;
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -54,6 +56,11 @@ const playerScoreUI = document.querySelector('#player-score');
 const computerScoreUI = document.querySelector('#computer-score');
 
 gameOptions.addEventListener('click', (event) => {
+
+    if (!gameActive) {
+        return;
+    }
+
     const playerChoice = event.target;
 
     const computerChoice = getComputerChoice();
@@ -67,4 +74,15 @@ gameOptions.addEventListener('click', (event) => {
 
     playerScoreUI.textContent = "Player Score: " + playerScore;
     computerScoreUI.textContent = "Computer Score: " + computerScore;
+
+    if (playerScore === 5 || computerScore === 5) {
+        gameActive = false;
+
+        const gameBody = document.querySelector('body');
+
+        const endMessage = document.createElement('h1');
+        endMessage.textContent = playerScore === 5 ? 'Player wins!' : 'Computer wins!';
+
+        gameBody.appendChild(endMessage);
+    }
 })
