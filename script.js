@@ -45,6 +45,27 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+function updateResultInterface(result) {
+    const newListItem = document.createElement('li');
+    newListItem.textContent = result;
+
+    resultList.appendChild(newListItem);
+
+    playerScoreUI.textContent = "Player Score: " + playerScore;
+    computerScoreUI.textContent = "Computer Score: " + computerScore;
+}
+
+function endGame() {
+    gameActive = false;
+
+    const gameBody = document.querySelector('body');
+
+    const endMessage = document.createElement('h1');
+    endMessage.textContent = playerScore === 5 ? 'Player wins!' : 'Computer wins!';
+
+    gameBody.appendChild(endMessage);
+}
+
 let gameActive = true;
 
 let playerScore = 0;
@@ -67,22 +88,9 @@ gameOptions.addEventListener('click', (event) => {
 
     const result = playRound(playerChoice.id.toUpperCase(), computerChoice);
 
-    const newListItem = document.createElement('li');
-    newListItem.textContent = result;
-
-    resultList.appendChild(newListItem);
-
-    playerScoreUI.textContent = "Player Score: " + playerScore;
-    computerScoreUI.textContent = "Computer Score: " + computerScore;
+    updateResultInterface(result);
 
     if (playerScore === 5 || computerScore === 5) {
-        gameActive = false;
-
-        const gameBody = document.querySelector('body');
-
-        const endMessage = document.createElement('h1');
-        endMessage.textContent = playerScore === 5 ? 'Player wins!' : 'Computer wins!';
-
-        gameBody.appendChild(endMessage);
+        endGame();
     }
 })
