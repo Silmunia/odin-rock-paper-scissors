@@ -2,75 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <script src="script.js" defer></script>
         <title>Odin Rock-Paper-Scissors</title>
     </head>
 
     <body>
-        <script>
-            const ROCK = "ROCK";
-            const PAPER = "PAPER";
-            const SCISSORS = "SCISSORS";
-
-            function getComputerChoice() {
-                let choice = Math.random() * 100;
-
-                if (choice <= 33) {
-                    return ROCK;
-                } else if (choice > 66) {
-                    return PAPER;
-                } else {
-                    return SCISSORS;
-                }
-            }
-
-            function playRound(playerChoice, computerChoice) {
-                if (playerChoice === computerChoice) {
-                    return "It's a tie!";
-                } else if (playerChoice === ROCK) {
-                    if (computerChoice === PAPER) {
-                        return "You lose! Paper beats rock.";
-                    } else {
-                        playerScore += 1;
-                        return "You win! Rock beats scissors.";
-                    }
-                } else if (playerChoice === PAPER) {
-                    if (computerChoice === SCISSORS) {
-                        return "You lose! Scissors beat paper.";
-                    } else {
-                        playerScore += 1;
-                        return "You win! Paper beats rock.";
-                    }
-                } else if (playerChoice === SCISSORS) {
-                    if (computerChoice === ROCK) {
-                        return "You lose! Rock beats scissors.";
-                    } else {
-                        playerScore += 1;
-                        return "You win! Scissors beat paper.";
-                    }
-                }
-            }
-
-            function playGame(numberOfRounds) {
-                for (let i = 0; i < numberOfRounds; i++) {
-                    const playerChoice = prompt("Enter your choice: ").toUpperCase();
-
-                    const computerChoice = getComputerChoice();
-
-                    console.log(playRound(playerChoice, computerChoice));
-                }
-
-                if (playerScore >= numberOfRounds/2) {
-                    console.log("The Player wins!");
-                } else {
-                    console.log("The Computer wins!");
-                }
-            }
-
-            let playerScore = 0;
-
-            const numberOfRounds = prompt("Enter the number of rounds to play:")
-
-            playGame(numberOfRounds);
-        </script>
+        <div id="options">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
     </body>
 </html>
