@@ -46,5 +46,12 @@ gameOptions.addEventListener('click', (event) => {
 
     const computerChoice = getComputerChoice();
 
-    console.log(playRound(playerChoice.id.toUpperCase(), computerChoice));
+    const result = playRound(playerChoice.id.toUpperCase(), computerChoice);
+
+    const resultList = document.querySelector('#results')
+
+    const newListItem = document.createElement('li');
+    newListItem.textContent = result;
+
+    resultList.appendChild(newListItem);
 })
